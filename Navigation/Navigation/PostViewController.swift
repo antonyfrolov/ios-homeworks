@@ -10,7 +10,7 @@ import UIKit
 class PostViewController: UIViewController {
     
     
-    var post = Post(title: "Дефолтный пост")
+    var post = Post(title: "Default post")
     
 
     override func viewDidLoad() {
@@ -19,7 +19,7 @@ class PostViewController: UIViewController {
         view.backgroundColor = .green
         navigationItem.title = post.title
         
-        let barItem = UIBarButtonItem(title: "Инфо", style: .plain, target: self, action: #selector(tapBarItem))
+        let barItem = UIBarButtonItem(title: "Info", style: .plain, target: self, action: #selector(tapBarItem))
         navigationItem.rightBarButtonItem = barItem
         
     }

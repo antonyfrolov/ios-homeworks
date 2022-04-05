@@ -16,7 +16,7 @@ class InfoViewController: UIViewController {
         
         let buttonAlert = UIButton(frame: CGRect(x: 100, y: 100, width: 100, height: 100))
         
-        buttonAlert.setTitle("Алерт", for: .normal)
+        buttonAlert.setTitle("Alert", for: .normal)
         
         buttonAlert.addTarget(self, action: #selector(tapAlertAction), for: .touchUpInside)
         
@@ -25,8 +25,21 @@ class InfoViewController: UIViewController {
     
 
     @objc private func tapAlertAction() {
-        //let postViewController = PostViewController()
-        //postViewController.post = Post(title: "Переданный пост")
-        //navigationController?.viewControllers.append(postViewController)
+     
+        let alertCon = UIAlertController()
+        alertCon.title = "Alert title"
+        alertCon.message = "Alert message"
+        
+        let alertLeft = UIAlertAction(title: "False", style: .destructive, handler: someHandler)
+        let alertRight = UIAlertAction(title: "True", style: .default) { _ in print("true")}
+        
+        alertCon.addAction(alertLeft)
+        alertCon.addAction(alertRight)
+        
+        present(alertCon, animated: true)
+    }
+    
+    func someHandler(alert: UIAlertAction!){
+        print("false")
     }
 }

@@ -19,13 +19,13 @@ class TabBarCon: UITabBarController {
     }
     
     private func setupCon() {
-        firstVC.tabBarItem.title = "Лента"
+        firstVC.tabBarItem.title = "Feed"
         firstVC.tabBarItem.image = UIImage(systemName: "bolt")
-        firstVC.navigationItem.title = "Лента пользователя"
+        firstVC.navigationItem.title = "User feed"
         
-        secondVC.tabBarItem.title = "Профиль"
+        secondVC.tabBarItem.title = "Profile"
         secondVC.tabBarItem.image = UIImage(systemName: "person")
-        secondVC.navigationItem.title = "Профиль пользователя"
+        secondVC.navigationItem.title = "User profile"
         
         let navController1 = UINavigationController(rootViewController: firstVC)
         let navController2 = UINavigationController(rootViewController: secondVC)

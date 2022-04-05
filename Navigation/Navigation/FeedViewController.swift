@@ -27,7 +27,7 @@ class FeedViewController: UIViewController {
     
     @objc private func tapAction() {
         let postViewController = PostViewController()
-        postViewController.post = Post(title: "Переданный пост")
+        postViewController.post = Post(title: "New post")
         navigationController?.viewControllers.append(postViewController)
     }
     
