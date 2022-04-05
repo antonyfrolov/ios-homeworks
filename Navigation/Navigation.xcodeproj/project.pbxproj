@@ -11,8 +11,8 @@
 		9A37110327FC422F0006A245 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A37110227FC422F0006A245 /* Assets.xcassets */; };
 		9A37110627FC422F0006A245 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A37110427FC422F0006A245 /* LaunchScreen.storyboard */; };
 		9A37110E27FC43C40006A245 /* TabBarCon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A37110D27FC43C40006A245 /* TabBarCon.swift */; };
-		9A37111027FC50FA0006A245 /* ViewCon1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A37110F27FC50FA0006A245 /* ViewCon1.swift */; };
-		9A37111227FC510D0006A245 /* ViewCon2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A37111127FC510D0006A245 /* ViewCon2.swift */; };
+		9A37111027FC50FA0006A245 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A37110F27FC50FA0006A245 /* FeedViewController.swift */; };
+		9A37111227FC510D0006A245 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A37111127FC510D0006A245 /* ProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,8 +22,8 @@
 		9A37110527FC422F0006A245 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9A37110727FC422F0006A245 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9A37110D27FC43C40006A245 /* TabBarCon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCon.swift; sourceTree = "<group>"; };
-		9A37110F27FC50FA0006A245 /* ViewCon1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCon1.swift; sourceTree = "<group>"; };
-		9A37111127FC510D0006A245 /* ViewCon2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCon2.swift; sourceTree = "<group>"; };
+		9A37110F27FC50FA0006A245 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
+		9A37111127FC510D0006A245 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,8 +58,8 @@
 			children = (
 				9A3710F927FC422E0006A245 /* AppDelegate.swift */,
 				9A37110D27FC43C40006A245 /* TabBarCon.swift */,
-				9A37110F27FC50FA0006A245 /* ViewCon1.swift */,
-				9A37111127FC510D0006A245 /* ViewCon2.swift */,
+				9A37110F27FC50FA0006A245 /* FeedViewController.swift */,
+				9A37111127FC510D0006A245 /* ProfileViewController.swift */,
 				9A37110227FC422F0006A245 /* Assets.xcassets */,
 				9A37110427FC422F0006A245 /* LaunchScreen.storyboard */,
 				9A37110727FC422F0006A245 /* Info.plist */,
@@ -137,9 +137,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9A37111027FC50FA0006A245 /* ViewCon1.swift in Sources */,
+				9A37111027FC50FA0006A245 /* FeedViewController.swift in Sources */,
 				9A3710FA27FC422E0006A245 /* AppDelegate.swift in Sources */,
-				9A37111227FC510D0006A245 /* ViewCon2.swift in Sources */,
+				9A37111227FC510D0006A245 /* ProfileViewController.swift in Sources */,
 				9A37110E27FC43C40006A245 /* TabBarCon.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -9,8 +9,8 @@ import UIKit
 
 class TabBarCon: UITabBarController {
     
-    let firstVC = ViewCon1()
-    let secondVC = ViewCon2()
+    let firstVC = FeedViewController()
+    let secondVC = ProfileViewController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
