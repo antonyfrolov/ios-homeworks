@@ -31,5 +31,4 @@ class TabBarCon: UITabBarController {
         
         viewControllers = [navController1, navController2]
     }
-
 }

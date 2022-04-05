@@ -29,5 +29,4 @@ class FeedViewController: UIViewController {
         postViewController.post = Post(title: "New post")
         navigationController?.viewControllers.append(postViewController)
     }
-    
 }
