@@ -26,7 +26,7 @@ class TabBarCon: UITabBarController {
         firstVC.navigationItem.title = "Лента пользователя"
         
         secondVC.tabBarItem.title = "Профиль"
-        secondVC.tabBarItem.image = UIImage(systemName: "note")
+        secondVC.tabBarItem.image = UIImage(systemName: "person")
         secondVC.navigationItem.title = "Профиль пользователя"
         
         let navController1 = UINavigationController(rootViewController: firstVC)
