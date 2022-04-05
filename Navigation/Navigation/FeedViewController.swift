@@ -22,11 +22,13 @@ class FeedViewController: UIViewController {
         buttonPost.addTarget(self, action: #selector(tapAction), for: .touchUpInside)
         
         view.addSubview(buttonPost)
+        
     }
     
     @objc private func tapAction() {
-        let vc = PostViewController()
-        present(vc, animated: true)
+        let postViewController = PostViewController()
+        postViewController.post = Post(title: "Переданный пост")
+        navigationController?.viewControllers.append(postViewController)
     }
     
 }
