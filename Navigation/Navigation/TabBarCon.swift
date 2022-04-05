@@ -14,7 +14,6 @@ class TabBarCon: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupCon()
     }
     

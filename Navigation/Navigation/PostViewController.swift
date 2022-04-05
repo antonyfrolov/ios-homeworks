@@ -9,10 +9,8 @@ import UIKit
 
 class PostViewController: UIViewController {
     
-    
     var post = Post(title: "Default post")
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -28,6 +26,4 @@ class PostViewController: UIViewController {
             let infoViewController = InfoViewController()
             present(infoViewController, animated: true)
         }
-   
-
 }

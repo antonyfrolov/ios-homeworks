@@ -22,7 +22,6 @@ class FeedViewController: UIViewController {
         buttonPost.addTarget(self, action: #selector(tapAction), for: .touchUpInside)
         
         view.addSubview(buttonPost)
-        
     }
     
     @objc private func tapAction() {

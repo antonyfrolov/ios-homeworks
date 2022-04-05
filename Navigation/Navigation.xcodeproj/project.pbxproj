@@ -67,11 +67,11 @@
 				9A37110F27FC50FA0006A245 /* FeedViewController.swift */,
 				9A37111127FC510D0006A245 /* ProfileViewController.swift */,
 				9A37111327FC62E60006A245 /* PostViewController.swift */,
+				9A37111527FC6CAD0006A245 /* Post.swift */,
+				9A37111727FC73D60006A245 /* InfoViewController.swift */,
 				9A37110227FC422F0006A245 /* Assets.xcassets */,
 				9A37110427FC422F0006A245 /* LaunchScreen.storyboard */,
 				9A37110727FC422F0006A245 /* Info.plist */,
-				9A37111527FC6CAD0006A245 /* Post.swift */,
-				9A37111727FC73D60006A245 /* InfoViewController.swift */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
