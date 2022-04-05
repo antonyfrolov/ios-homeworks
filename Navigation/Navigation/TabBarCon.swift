@@ -8,22 +8,31 @@
 import UIKit
 
 class TabBarCon: UITabBarController {
+    
+    let firstVC = ViewCon1()
+    let secondVC = ViewCon2()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+       
 
-        // Do any additional setup after loading the view.
+        setupCon()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func setupCon() {
+        firstVC.tabBarItem.title = "Лента"
+        firstVC.tabBarItem.image = UIImage(systemName: "bolt")
+        firstVC.navigationItem.title = "Лента пользователя"
+        
+        secondVC.tabBarItem.title = "Профиль"
+        secondVC.tabBarItem.image = UIImage(systemName: "note")
+        secondVC.navigationItem.title = "Профиль пользователя"
+        
+        let navController1 = UINavigationController(rootViewController: firstVC)
+        let navController2 = UINavigationController(rootViewController: secondVC)
+        
+        viewControllers = [navController1, navController2]
     }
-    */
 
 }
