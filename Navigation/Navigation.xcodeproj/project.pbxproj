@@ -13,6 +13,7 @@
 		9A37110E27FC43C40006A245 /* TabBarCon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A37110D27FC43C40006A245 /* TabBarCon.swift */; };
 		9A37111027FC50FA0006A245 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A37110F27FC50FA0006A245 /* FeedViewController.swift */; };
 		9A37111227FC510D0006A245 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A37111127FC510D0006A245 /* ProfileViewController.swift */; };
+		9A37111427FC62E60006A245 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A37111327FC62E60006A245 /* PostViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		9A37110D27FC43C40006A245 /* TabBarCon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCon.swift; sourceTree = "<group>"; };
 		9A37110F27FC50FA0006A245 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		9A37111127FC510D0006A245 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		9A37111327FC62E60006A245 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 				9A37110D27FC43C40006A245 /* TabBarCon.swift */,
 				9A37110F27FC50FA0006A245 /* FeedViewController.swift */,
 				9A37111127FC510D0006A245 /* ProfileViewController.swift */,
+				9A37111327FC62E60006A245 /* PostViewController.swift */,
 				9A37110227FC422F0006A245 /* Assets.xcassets */,
 				9A37110427FC422F0006A245 /* LaunchScreen.storyboard */,
 				9A37110727FC422F0006A245 /* Info.plist */,
@@ -141,6 +144,7 @@
 				9A3710FA27FC422E0006A245 /* AppDelegate.swift in Sources */,
 				9A37111227FC510D0006A245 /* ProfileViewController.swift in Sources */,
 				9A37110E27FC43C40006A245 /* TabBarCon.swift in Sources */,
+				9A37111427FC62E60006A245 /* PostViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
