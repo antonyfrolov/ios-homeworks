@@ -12,7 +12,6 @@
 		9A37110627FC422F0006A245 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A37110427FC422F0006A245 /* LaunchScreen.storyboard */; };
 		9A37110E27FC43C40006A245 /* TabBarCon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A37110D27FC43C40006A245 /* TabBarCon.swift */; };
 		9A37111027FC50FA0006A245 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A37110F27FC50FA0006A245 /* FeedViewController.swift */; };
-		9A37111227FC510D0006A245 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A37111127FC510D0006A245 /* ProfileViewController.swift */; };
 		9A37111427FC62E60006A245 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A37111327FC62E60006A245 /* PostViewController.swift */; };
 		9A37111627FC6CAD0006A245 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A37111527FC6CAD0006A245 /* Post.swift */; };
 		9A37111827FC73D60006A245 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A37111727FC73D60006A245 /* InfoViewController.swift */; };
@@ -28,7 +27,6 @@
 		9A37110727FC422F0006A245 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9A37110D27FC43C40006A245 /* TabBarCon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCon.swift; sourceTree = "<group>"; };
 		9A37110F27FC50FA0006A245 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
-		9A37111127FC510D0006A245 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		9A37111327FC62E60006A245 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		9A37111527FC6CAD0006A245 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		9A37111727FC73D60006A245 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
@@ -70,7 +68,6 @@
 				9A3710F927FC422E0006A245 /* AppDelegate.swift */,
 				9A37110D27FC43C40006A245 /* TabBarCon.swift */,
 				9A37110F27FC50FA0006A245 /* FeedViewController.swift */,
-				9A37111127FC510D0006A245 /* ProfileViewController.swift */,
 				9A37111327FC62E60006A245 /* PostViewController.swift */,
 				9A37111527FC6CAD0006A245 /* Post.swift */,
 				9A37111727FC73D60006A245 /* InfoViewController.swift */,
@@ -162,7 +159,6 @@
 			files = (
 				9A37111027FC50FA0006A245 /* FeedViewController.swift in Sources */,
 				9A3710FA27FC422E0006A245 /* AppDelegate.swift in Sources */,
-				9A37111227FC510D0006A245 /* ProfileViewController.swift in Sources */,
 				9A37111827FC73D60006A245 /* InfoViewController.swift in Sources */,
 				9A37111627FC6CAD0006A245 /* Post.swift in Sources */,
 				9A37110E27FC43C40006A245 /* TabBarCon.swift in Sources */,
