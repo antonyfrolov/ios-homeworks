@@ -19,6 +19,7 @@ class ProfileHeaderView: UIView {
         text.textColor = .black
         return text
     }()
+    
     let userPic: UIImageView = {
         let image = UIImageView(frame: CGRect(x: 16, y: 10, width: 100, height: 100))
         image.image = UIImage(named:"ponch")
@@ -53,9 +54,7 @@ class ProfileHeaderView: UIView {
     }()
     
     override init(frame: CGRect) {
-        
         super.init(frame: frame)
-        
         addSubview(userPic)
         addSubview(textLabel)
         addSubview(textInput)
