@@ -10,6 +10,8 @@ import UIKit
 
 class ProfileHeaderView: UIView {
     
+    private lazy var textToPrint: String = textInput.text ?? ""
+    
     let textLabel: UILabel = {
         let text = UILabel(frame: CGRect(x: 130, y: 27, width: UIScreen.main.bounds.width, height: 20))
         text.text = "Ponchik sweet dog"
@@ -33,6 +35,7 @@ class ProfileHeaderView: UIView {
         text.text = "Waiting for something.."
         text.font = UIFont.systemFont(ofSize: 14, weight: .regular)
         text.textColor = .gray
+        text.addTarget(self, action: #selector(textChanged), for: .editingChanged)
         return text
     }()
     
@@ -45,7 +48,7 @@ class ProfileHeaderView: UIView {
         butto.layer.shadowOpacity = 0.7
         butto.layer.shadowOffset = CGSize(width: 4, height: 4)
         butto.setTitle("Show status", for: .normal)
-        butto.addTarget(nil, action: #selector(tapAction), for: .touchUpInside)
+        butto.addTarget(self, action: #selector(tapAction), for: .touchUpInside)
         return butto
     }()
     
@@ -65,9 +68,11 @@ class ProfileHeaderView: UIView {
     }
     
     @objc func tapAction() {
-        
-        print(textInput.text)
-        
+        print(textToPrint)
+        textLabel.text = textToPrint
     }
     
+    @objc func textChanged(_ textField: UITextField) {
+        textToPrint = textField.text!
+    }
 }
