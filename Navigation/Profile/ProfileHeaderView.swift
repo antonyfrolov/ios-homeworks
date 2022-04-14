@@ -10,18 +10,20 @@ import UIKit
 
 class ProfileHeaderView: UIView {
     
-    private lazy var textToPrint: String = textInput.text ?? ""
+    private lazy var textToPrint: String = statusTextField.text ?? ""
     
-    let textLabel: UILabel = {
-        let text = UILabel(frame: CGRect(x: 130, y: 27, width: UIScreen.main.bounds.width, height: 20))
+    let fullNameLabel: UILabel = {
+        let text = UILabel()
+        text.translatesAutoresizingMaskIntoConstraints = false
         text.text = "Ponchik sweet dog"
         text.font = UIFont.systemFont(ofSize: 18, weight: .bold)
         text.textColor = .black
         return text
     }()
     
-    let userPic: UIImageView = {
-        let image = UIImageView(frame: CGRect(x: 16, y: 10, width: 100, height: 100))
+    let avatarImageView: UIImageView = {
+        let image = UIImageView()
+        image.translatesAutoresizingMaskIntoConstraints = false
         image.image = UIImage(named:"ponch")
         image.layer.cornerRadius = 50
         image.layer.borderWidth = 3
@@ -30,18 +32,32 @@ class ProfileHeaderView: UIView {
         return image
     }()
     
-    let textInput: UITextField = {
-      
-        let text = UITextField(frame: CGRect(x: 130, y: 57, width: UIScreen.main.bounds.width, height: 20))
+    let statusLabel: UILabel = {
+        let text = UILabel()
+        text.translatesAutoresizingMaskIntoConstraints = false
         text.text = "Waiting for something.."
         text.font = UIFont.systemFont(ofSize: 14, weight: .regular)
         text.textColor = .gray
+        return text
+    }()
+    
+    let statusTextField: UITextField = {
+        let text = UITextField()
+        text.translatesAutoresizingMaskIntoConstraints = false
+        text.text = "Waiting for something.."
+        text.font = UIFont.systemFont(ofSize: 15, weight: .regular)
+        text.textColor = .black
+        text.layer.borderWidth = 1
+        text.layer.borderColor = UIColor.black.cgColor
+        text.layer.backgroundColor = UIColor.white.cgColor
+        text.layer.cornerRadius = 12
         text.addTarget(self, action: #selector(textChanged), for: .editingChanged)
         return text
     }()
     
-    let blueButton: UIButton = {
-        let butto = UIButton(frame: CGRect(x: 16, y: 120, width: UIScreen.main.bounds.width - 32, height: 50))
+    let setStatusButton: UIButton = {
+        let butto = UIButton()
+        butto.translatesAutoresizingMaskIntoConstraints = false
         butto.backgroundColor = .blue
         butto.layer.cornerRadius = 20
         butto.layer.shadowRadius = 4
@@ -56,10 +72,36 @@ class ProfileHeaderView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
        
-        addSubview(userPic)
-        addSubview(textLabel)
-        addSubview(textInput)
-        addSubview(blueButton)
+        addSubview(avatarImageView)
+        avatarImageView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16).isActive = true
+        avatarImageView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16).isActive = true
+        avatarImageView.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        avatarImageView.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        
+        addSubview(fullNameLabel)
+        fullNameLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 27).isActive = true
+        fullNameLabel.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 16).isActive = true
+        
+    
+    
+        
+
+        
+        
+        addSubview(statusLabel)
+        statusLabel.topAnchor.constraint(equalTo: fullNameLabel.bottomAnchor, constant: 34).isActive = true
+        statusLabel.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 16).isActive = true
+        
+        addSubview(statusTextField)
+        statusTextField.topAnchor.constraint(equalTo: statusLabel.bottomAnchor, constant: 8).isActive = true
+        statusTextField.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 16).isActive = true
+        statusTextField.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16).isActive = true
+        statusTextField.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        
+        addSubview(setStatusButton)
+        setStatusButton.topAnchor.constraint(equalTo: avatarImageView.bottomAnchor, constant: 34).isActive = true
+        setStatusButton.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16).isActive = true
+        setStatusButton.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor, constant: -16).isActive = true
         
     }
     
@@ -69,7 +111,7 @@ class ProfileHeaderView: UIView {
     
     @objc func tapAction() {
         print(textToPrint)
-        textLabel.text = textToPrint
+        statusLabel.text = textToPrint
     }
     
     @objc func textChanged(_ textField: UITextField) {
