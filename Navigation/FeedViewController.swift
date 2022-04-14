@@ -15,7 +15,7 @@ class FeedViewController: UIViewController {
         newStack.backgroundColor = .systemPink
         newStack.axis = .vertical
         newStack.spacing = 10
-        newStack.distribution = .fill
+        newStack.distribution = .fillEqually
         return newStack
     }()
     
@@ -56,12 +56,12 @@ class FeedViewController: UIViewController {
     
     private func layout()
     {
-        newStack.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0).isActive = true
         newStack.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
         newStack.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
-
-        buttonPost1.heightAnchor.constraint(equalToConstant: 100).isActive = true
-        buttonPost2.heightAnchor.constraint(equalToConstant: 100).isActive = true
         
+        newStack.heightAnchor.constraint(equalToConstant: 250).isActive = true
+        
+        newStack.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+
     }
 }
