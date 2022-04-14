@@ -13,96 +13,92 @@ class ProfileHeaderView: UIView {
     private lazy var textToPrint: String = statusTextField.text ?? ""
     
     let fullNameLabel: UILabel = {
-        let text = UILabel()
-        text.translatesAutoresizingMaskIntoConstraints = false
-        text.text = "Ponchik sweet dog"
-        text.font = UIFont.systemFont(ofSize: 18, weight: .bold)
-        text.textColor = .black
-        return text
+        let fullNameLabel = UILabel()
+        fullNameLabel.translatesAutoresizingMaskIntoConstraints = false
+        fullNameLabel.text = "Ponchik sweet dog"
+        fullNameLabel.font = UIFont.systemFont(ofSize: 18, weight: .bold)
+        fullNameLabel.textColor = .black
+        return fullNameLabel
     }()
     
     let avatarImageView: UIImageView = {
-        let image = UIImageView()
-        image.translatesAutoresizingMaskIntoConstraints = false
-        image.image = UIImage(named:"ponch")
-        image.layer.cornerRadius = 50
-        image.layer.borderWidth = 3
-        image.layer.borderColor = UIColor.white.cgColor
-        image.clipsToBounds = true
-        return image
+        let avatarImageView = UIImageView()
+        avatarImageView.translatesAutoresizingMaskIntoConstraints = false
+        avatarImageView.image = UIImage(named:"ponch")
+        avatarImageView.layer.cornerRadius = 50
+        avatarImageView.layer.borderWidth = 3
+        avatarImageView.layer.borderColor = UIColor.white.cgColor
+        avatarImageView.clipsToBounds = true
+        return avatarImageView
     }()
     
     let statusLabel: UILabel = {
-        let text = UILabel()
-        text.translatesAutoresizingMaskIntoConstraints = false
-        text.text = "Waiting for something.."
-        text.font = UIFont.systemFont(ofSize: 14, weight: .regular)
-        text.textColor = .gray
-        return text
+        let statusLabel = UILabel()
+        statusLabel.translatesAutoresizingMaskIntoConstraints = false
+        statusLabel.text = "Waiting for something.."
+        statusLabel.font = UIFont.systemFont(ofSize: 14, weight: .regular)
+        statusLabel.textColor = .gray
+        return statusLabel
     }()
     
     let statusTextField: UITextField = {
-        let text = UITextField()
-        text.translatesAutoresizingMaskIntoConstraints = false
-        text.text = "Waiting for something.."
-        text.font = UIFont.systemFont(ofSize: 15, weight: .regular)
-        text.textColor = .black
-        text.layer.borderWidth = 1
-        text.layer.borderColor = UIColor.black.cgColor
-        text.layer.backgroundColor = UIColor.white.cgColor
-        text.layer.cornerRadius = 12
-        text.addTarget(self, action: #selector(textChanged), for: .editingChanged)
-        return text
+        let statusTextField = UITextField()
+        statusTextField.translatesAutoresizingMaskIntoConstraints = false
+        statusTextField.text = "Waiting for something.."
+        statusTextField.font = UIFont.systemFont(ofSize: 15, weight: .regular)
+        statusTextField.textColor = .black
+        statusTextField.layer.borderWidth = 1
+        statusTextField.layer.borderColor = UIColor.black.cgColor
+        statusTextField.layer.backgroundColor = UIColor.white.cgColor
+        statusTextField.layer.cornerRadius = 12
+        statusTextField.addTarget(self, action: #selector(textChanged), for: .editingChanged)
+        return statusTextField
     }()
     
     let setStatusButton: UIButton = {
-        let butto = UIButton()
-        butto.translatesAutoresizingMaskIntoConstraints = false
-        butto.backgroundColor = .blue
-        butto.layer.cornerRadius = 20
-        butto.layer.shadowRadius = 4
-        butto.layer.shadowColor = UIColor.black.cgColor
-        butto.layer.shadowOpacity = 0.7
-        butto.layer.shadowOffset = CGSize(width: 4, height: 4)
-        butto.setTitle("Show status", for: .normal)
-        butto.addTarget(self, action: #selector(tapAction), for: .touchUpInside)
-        return butto
+        let setStatusButton = UIButton()
+        setStatusButton.translatesAutoresizingMaskIntoConstraints = false
+        setStatusButton.backgroundColor = .blue
+        setStatusButton.layer.cornerRadius = 20
+        setStatusButton.layer.shadowRadius = 4
+        setStatusButton.layer.shadowColor = UIColor.black.cgColor
+        setStatusButton.layer.shadowOpacity = 0.7
+        setStatusButton.layer.shadowOffset = CGSize(width: 4, height: 4)
+        setStatusButton.setTitle("Show status", for: .normal)
+        setStatusButton.addTarget(self, action: #selector(tapAction), for: .touchUpInside)
+        return setStatusButton
     }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
        
         addSubview(avatarImageView)
-        avatarImageView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16).isActive = true
-        avatarImageView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16).isActive = true
-        avatarImageView.widthAnchor.constraint(equalToConstant: 100).isActive = true
-        avatarImageView.heightAnchor.constraint(equalToConstant: 100).isActive = true
-        
         addSubview(fullNameLabel)
-        fullNameLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 27).isActive = true
-        fullNameLabel.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 16).isActive = true
-        
-    
-    
-        
-
-        
-        
         addSubview(statusLabel)
-        statusLabel.topAnchor.constraint(equalTo: fullNameLabel.bottomAnchor, constant: 34).isActive = true
-        statusLabel.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 16).isActive = true
-        
         addSubview(statusTextField)
-        statusTextField.topAnchor.constraint(equalTo: statusLabel.bottomAnchor, constant: 8).isActive = true
-        statusTextField.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 16).isActive = true
-        statusTextField.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16).isActive = true
-        statusTextField.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        
         addSubview(setStatusButton)
-        setStatusButton.topAnchor.constraint(equalTo: avatarImageView.bottomAnchor, constant: 34).isActive = true
-        setStatusButton.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16).isActive = true
-        setStatusButton.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor, constant: -16).isActive = true
         
+        NSLayoutConstraint.activate([
+            avatarImageView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
+            avatarImageView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16),
+            avatarImageView.widthAnchor.constraint(equalToConstant: 100),
+            avatarImageView.heightAnchor.constraint(equalToConstant: 100),
+            
+            fullNameLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 27),
+            fullNameLabel.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 16),
+            statusLabel.topAnchor.constraint(equalTo: fullNameLabel.bottomAnchor, constant: 34),
+            statusLabel.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 16),
+            
+            statusTextField.topAnchor.constraint(equalTo: statusLabel.bottomAnchor, constant: 8),
+            statusTextField.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 16),
+            statusTextField.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16),
+            statusTextField.heightAnchor.constraint(equalToConstant: 40),
+            
+            setStatusButton.topAnchor.constraint(equalTo: avatarImageView.bottomAnchor, constant: 34),
+            setStatusButton.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16),
+            setStatusButton.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor, constant: -16)
+        
+        ])
     }
     
     required init?(coder: NSCoder) {
