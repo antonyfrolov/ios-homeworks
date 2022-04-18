@@ -10,7 +10,7 @@ import UIKit
 class TabBarCon: UITabBarController {
     
     let firstVC = FeedViewController()
-    let secondVC = ProfileViewController()
+    let secondVC = LogInViewController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,12 +26,14 @@ class TabBarCon: UITabBarController {
         secondVC.tabBarItem.image = UIImage(systemName: "person")
         secondVC.navigationItem.title = "User profile"
         
+        
         let navController1 = UINavigationController(rootViewController: firstVC)
         let navController2 = UINavigationController(rootViewController: secondVC)
         
         UITabBar.appearance().barTintColor = .systemBlue
         UITabBar.appearance().backgroundColor = .white
         UINavigationBar.appearance().backgroundColor = .white
+       // UINavigationBar.appearance().isHidden = true
         
         let statusBarView = UIView(frame: UIApplication.shared.statusBarFrame)
         statusBarView.backgroundColor = .white
