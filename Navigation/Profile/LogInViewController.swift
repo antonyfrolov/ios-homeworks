@@ -12,11 +12,10 @@ class LogInViewController: UIViewController {
     let nc = NotificationCenter.default
     
     let logoImg: UIImageView = {
-        let logoImg = UIImageView()
-        logoImg.image = UIImage(named: "logo")
-        logoImg.translatesAutoresizingMaskIntoConstraints = false
-        return logoImg
-    }()
+        $0.image = UIImage(named: "logo")
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        return $0
+    }(UIImageView())
     
     lazy var loginInput: UITextField = {
         $0.placeholder = "Email or phone"
@@ -46,19 +45,17 @@ class LogInViewController: UIViewController {
     }(UITextField())
     
     let loginButton: UIButton = {
-        let loginButton = UIButton()
-        loginButton.layer.cornerRadius = 10
-        loginButton.translatesAutoresizingMaskIntoConstraints = false
-        loginButton.setTitle("Login", for: .normal)
-        loginButton.setBackgroundImage(UIImage(named: "blue_pixel"), for: .normal)
-        loginButton.clipsToBounds = true
-        loginButton.addTarget(self, action: #selector(tapAction), for: .touchUpInside)
-        return loginButton
-    }()
+        $0.layer.cornerRadius = 10
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.setTitle("Login", for: .normal)
+        $0.setBackgroundImage(UIImage(named: "blue_pixel"), for: .normal)
+        $0.clipsToBounds = true
+        $0.addTarget(self, action: #selector(tapAction), for: .touchUpInside)
+        return $0
+    }(UIButton())
     
     let scrollView: UIScrollView = {
         $0.translatesAutoresizingMaskIntoConstraints = false
-        
         return $0
     }(UIScrollView())
     
@@ -68,17 +65,15 @@ class LogInViewController: UIViewController {
         return $0
     }(UIView())
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .white
+       // view.backgroundColor = .white
         
         navigationController?.navigationBar.isHidden = true
         
-        
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard (_:)))
-        self.view.addGestureRecognizer(tapGesture)
+        view.addGestureRecognizer(tapGesture)
 
         layout()
     }
