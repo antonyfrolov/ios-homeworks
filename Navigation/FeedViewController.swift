@@ -9,15 +9,14 @@ import UIKit
 
 class FeedViewController: UIViewController {
     
-    let newStack: UIStackView = {
-        let newStack = UIStackView()
-        newStack.translatesAutoresizingMaskIntoConstraints = false
-        newStack.backgroundColor = .systemPink
-        newStack.axis = .vertical
-        newStack.spacing = 10
-        newStack.distribution = .fillEqually
-        return newStack
-    }()
+    private let newStack: UIStackView = {
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.backgroundColor = .systemPink
+        $0.axis = .vertical
+        $0.spacing = 10
+        $0.distribution = .fillEqually
+        return $0
+    }(UIStackView())
     
     let buttonPost1: UIButton = {
         let buttonPost = UIButton()
@@ -40,22 +39,23 @@ class FeedViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemMint
-        view.addSubview(newStack)
-        
-        newStack.addArrangedSubview(buttonPost1)
-        newStack.addArrangedSubview(buttonPost2)
         
         layout()
     }
     
     @objc private func tapAction() {
         let postViewController = PostViewController()
-        postViewController.post = Post(title: "New post")
+        postViewController.post = Post(title: "New post", description: "New desc", author: "Noname", likes: 0, views: 0)
         navigationController?.pushViewController(postViewController, animated: true)
     }
     
     private func layout()
     {
+        view.addSubview(newStack)
+        
+        newStack.addArrangedSubview(buttonPost1)
+        newStack.addArrangedSubview(buttonPost2)
+        
         newStack.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
         newStack.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
         

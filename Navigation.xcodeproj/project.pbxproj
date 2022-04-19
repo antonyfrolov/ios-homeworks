@@ -18,6 +18,9 @@
 		9A37111B280287DC0006A245 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A37111A280287DC0006A245 /* ProfileHeaderView.swift */; };
 		9A37111D280288D90006A245 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A37111C280288D90006A245 /* ProfileViewController.swift */; };
 		9AFC7CDA280D28C500CAA015 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFC7CD9280D28C500CAA015 /* LogInViewController.swift */; };
+		9AFC7CDC280E761100CAA015 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFC7CDB280E761100CAA015 /* PostTableViewCell.swift */; };
+		9AFC7CDE280E780400CAA015 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFC7CDD280E780400CAA015 /* CustomTableViewCell.swift */; };
+		9AFC7CE0280E90D400CAA015 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFC7CDF280E90D400CAA015 /* UIViewExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +37,9 @@
 		9A37111A280287DC0006A245 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		9A37111C280288D90006A245 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		9AFC7CD9280D28C500CAA015 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		9AFC7CDB280E761100CAA015 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
+		9AFC7CDD280E780400CAA015 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		9AFC7CDF280E90D400CAA015 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,13 +75,16 @@
 				9A371119280287B00006A245 /* Profile */,
 				9A3710F927FC422E0006A245 /* AppDelegate.swift */,
 				9A37110D27FC43C40006A245 /* TabBarCon.swift */,
+				9AFC7CDD280E780400CAA015 /* CustomTableViewCell.swift */,
+				9AFC7CDB280E761100CAA015 /* PostTableViewCell.swift */,
+				9A37111527FC6CAD0006A245 /* Post.swift */,
 				9A37110F27FC50FA0006A245 /* FeedViewController.swift */,
 				9A37111327FC62E60006A245 /* PostViewController.swift */,
-				9A37111527FC6CAD0006A245 /* Post.swift */,
 				9A37111727FC73D60006A245 /* InfoViewController.swift */,
 				9A37110227FC422F0006A245 /* Assets.xcassets */,
 				9A37110427FC422F0006A245 /* LaunchScreen.storyboard */,
 				9A37110727FC422F0006A245 /* Info.plist */,
+				9AFC7CDF280E90D400CAA015 /* UIViewExtension.swift */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -162,11 +171,14 @@
 			files = (
 				9A37111027FC50FA0006A245 /* FeedViewController.swift in Sources */,
 				9A3710FA27FC422E0006A245 /* AppDelegate.swift in Sources */,
+				9AFC7CDE280E780400CAA015 /* CustomTableViewCell.swift in Sources */,
 				9AFC7CDA280D28C500CAA015 /* LogInViewController.swift in Sources */,
 				9A37111827FC73D60006A245 /* InfoViewController.swift in Sources */,
 				9A37111627FC6CAD0006A245 /* Post.swift in Sources */,
+				9AFC7CE0280E90D400CAA015 /* UIViewExtension.swift in Sources */,
 				9A37110E27FC43C40006A245 /* TabBarCon.swift in Sources */,
 				9A37111D280288D90006A245 /* ProfileViewController.swift in Sources */,
+				9AFC7CDC280E761100CAA015 /* PostTableViewCell.swift in Sources */,
 				9A37111427FC62E60006A245 /* PostViewController.swift in Sources */,
 				9A37111B280287DC0006A245 /* ProfileHeaderView.swift in Sources */,
 			);

@@ -9,42 +9,52 @@ import UIKit
 
 class LogInViewController: UIViewController {
     
-    let nc = NotificationCenter.default
+    private let nc = NotificationCenter.default
     
-    let logoImg: UIImageView = {
+    private let newStack: UIStackView = {
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.backgroundColor = .systemGray6
+        $0.layer.cornerRadius = 10
+        $0.layer.borderColor = UIColor.lightGray.cgColor
+        $0.layer.borderWidth = 0.5
+        $0.axis = .vertical
+        $0.spacing = 0
+        $0.distribution = .fillProportionally
+        return $0
+    }(UIStackView())
+    
+    private let logoImg: UIImageView = {
         $0.image = UIImage(named: "logo")
         $0.translatesAutoresizingMaskIntoConstraints = false
         return $0
     }(UIImageView())
     
-    lazy var loginInput: UITextField = {
-        $0.placeholder = "Email or phone"
-        $0.backgroundColor = .systemGray6
+    private lazy var loginInput: UITextField = {
+        $0.placeholder = " Email or phone"
         $0.font = UIFont.systemFont(ofSize: 16)
         $0.autocapitalizationType = .none
-        $0.layer.cornerRadius = 10
-        $0.layer.borderColor = UIColor.lightGray.cgColor
-        $0.layer.borderWidth = 0.5
         $0.delegate = self
         $0.translatesAutoresizingMaskIntoConstraints = false
         return $0
     }(UITextField())
     
-    lazy var passwordInput: UITextField = {
-        $0.placeholder = "Password"
-        $0.backgroundColor = .systemGray6
+    private let separator: UIView = {
+            $0.frame = .zero
+            $0.backgroundColor = .lightGray
+            return $0
+    }(UIView())
+    
+    private lazy var passwordInput: UITextField = {
+        $0.placeholder = " Password"
         $0.font = UIFont.systemFont(ofSize: 16)
         $0.autocapitalizationType = .none
-        $0.layer.cornerRadius = 10
-        $0.layer.borderColor = UIColor.lightGray.cgColor
-        $0.layer.borderWidth = 0.5
         $0.isSecureTextEntry = true
         $0.delegate = self
         $0.translatesAutoresizingMaskIntoConstraints = false
         return $0
     }(UITextField())
     
-    let loginButton: UIButton = {
+    private let loginButton: UIButton = {
         $0.layer.cornerRadius = 10
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.setTitle("Login", for: .normal)
@@ -54,12 +64,12 @@ class LogInViewController: UIViewController {
         return $0
     }(UIButton())
     
-    let scrollView: UIScrollView = {
+    private let scrollView: UIScrollView = {
         $0.translatesAutoresizingMaskIntoConstraints = false
         return $0
     }(UIScrollView())
     
-    let contentView: UIView = {
+    private let contentView: UIView = {
         $0.backgroundColor = .white
         $0.translatesAutoresizingMaskIntoConstraints = false
         return $0
@@ -114,7 +124,6 @@ class LogInViewController: UIViewController {
     }
     
     private func layout(){
-
         
         view.addSubview(scrollView)
         
@@ -136,26 +145,53 @@ class LogInViewController: UIViewController {
             contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor)
         ])
         
-        [logoImg,loginInput,passwordInput,loginButton].forEach({contentView.addSubview($0)})
         
+        contentView.addSubview(logoImg)
         
         NSLayoutConstraint.activate([
-            
         
             logoImg.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 120),
             logoImg.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             logoImg.widthAnchor.constraint(equalToConstant: 100),
             logoImg.heightAnchor.constraint(equalToConstant: 100),
             
-            loginInput.topAnchor.constraint(equalTo: logoImg.bottomAnchor, constant: 120),
-            loginInput.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-            loginInput.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
+        ])
+        
+        contentView.addSubview(newStack)
+        
+        NSLayoutConstraint.activate([
+            
+            
+            newStack.topAnchor.constraint(equalTo: logoImg.bottomAnchor, constant: 120),
+            newStack.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+            newStack.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
+            newStack.heightAnchor.constraint(equalToConstant: 100)
+        
+            
+        ])
+        
+        
+        [loginInput, separator,passwordInput].forEach{newStack.addArrangedSubview($0)}
+        
+        NSLayoutConstraint.activate([
+            
+            loginInput.topAnchor.constraint(equalTo: newStack.bottomAnchor, constant: 0),
+            loginInput.leadingAnchor.constraint(equalTo: newStack.leadingAnchor, constant: 0),
+            loginInput.trailingAnchor.constraint(equalTo: newStack.trailingAnchor, constant: 0),
             loginInput.heightAnchor.constraint(equalToConstant: 50),
             
-            passwordInput.topAnchor.constraint(equalTo: loginInput.bottomAnchor),
-            passwordInput.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-            passwordInput.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
+            separator.heightAnchor.constraint(equalToConstant: 1),
+            
+            passwordInput.topAnchor.constraint(equalTo: separator.bottomAnchor, constant: 0),
+            passwordInput.leadingAnchor.constraint(equalTo: newStack.leadingAnchor, constant: 0),
+            passwordInput.trailingAnchor.constraint(equalTo: newStack.trailingAnchor, constant: 0),
             passwordInput.heightAnchor.constraint(equalToConstant: 50),
+        
+        ])
+        
+        contentView.addSubview(loginButton)
+        
+        NSLayoutConstraint.activate([
             
             loginButton.topAnchor.constraint(equalTo: passwordInput.bottomAnchor, constant: 16),
             loginButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
@@ -163,12 +199,10 @@ class LogInViewController: UIViewController {
             loginButton.heightAnchor.constraint(equalToConstant: 50),
             /// Обязательно закрепиться к низу  contentView !!!!
             loginButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -50)
-        
         ])
         
-    }
-    
 
+    }
 }
 
 extension LogInViewController: UITextFieldDelegate {
