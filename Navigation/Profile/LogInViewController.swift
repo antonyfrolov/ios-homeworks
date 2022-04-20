@@ -96,6 +96,8 @@ class LogInViewController: UIViewController {
         nc.addObserver(self, selector: #selector(kbdShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         nc.addObserver(self, selector: #selector(kbdHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         
+        navigationController?.navigationBar.isHidden = true
+        
     }
     
     override func viewDidDisappear(_ animated: Bool) {

@@ -9,7 +9,7 @@ import UIKit
 
 class PostViewController: UIViewController {
     
-    var post = Post(title: "Def title", description: "Def descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef ddescDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef ddescDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef ddescDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef ddescDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef ddescDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef ddescDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef ddescDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef descDef desc", author: "Noname", likes: 0, views: 0)
+    var post = Post(title: "Def title", description: "Def desc", author: "Noname", likes: 0, views: 0)
     
     
     private lazy var tableView: UITableView = {
@@ -19,6 +19,11 @@ class PostViewController: UIViewController {
         $0.register(PostTableViewCell.self, forCellReuseIdentifier: PostTableViewCell.identifier)
         return $0
     }(UITableView())
+    
+    convenience init(post: Post){
+        self.init()
+        self.post = post
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

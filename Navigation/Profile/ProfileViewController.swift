@@ -94,7 +94,7 @@ extension ProfileViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
 
-        let detailVC = PostViewController()
+        let detailVC = PostViewController(post: postsList[indexPath.row])
       //  detailVC.setupVC(model: carModel[indexPath.sectio[indexPath.row])
         navigationController?.pushViewController(detailVC, animated: true)
     }
