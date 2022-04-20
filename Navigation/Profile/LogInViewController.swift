@@ -77,8 +77,6 @@ class LogInViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
-        navigationController?.navigationBar.isHidden = true
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard (_:)))
         view.addGestureRecognizer(tapGesture)
