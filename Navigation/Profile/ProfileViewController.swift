@@ -22,28 +22,23 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
         self.view.backgroundColor = .lightGray
        // view.addSubview(phv)
         view.addSubview(tableView)
         layout()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-    
         navigationController?.navigationBar.isHidden = true
-        
     }
     
     private func layout(){
-        
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: view.topAnchor),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
 }
@@ -95,6 +90,7 @@ extension ProfileViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
         let phv = ProfileHeaderView()
+        
         return phv
     }
     
@@ -102,7 +98,6 @@ extension ProfileViewController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
 
         let detailVC = PostViewController(post: postsList[indexPath.row])
-      //  detailVC.setupVC(model: carModel[indexPath.sectio[indexPath.row])
         navigationController?.pushViewController(detailVC, animated: true)
     }
 }

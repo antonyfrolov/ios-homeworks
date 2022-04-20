@@ -11,10 +11,17 @@ class TabBarCon: UITabBarController {
     
     let firstVC = FeedViewController()
     let secondVC = LogInViewController()
+    
+    let statusBarView: UIView = {
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.backgroundColor = .systemBackground
+        return $0
+    }(UIView())
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCon()
+        layout()
     }
     
     private func setupCon() {
@@ -26,19 +33,26 @@ class TabBarCon: UITabBarController {
         secondVC.tabBarItem.image = UIImage(systemName: "person")
         secondVC.navigationItem.title = "User profile"
         
-        
         let navController1 = UINavigationController(rootViewController: firstVC)
         let navController2 = UINavigationController(rootViewController: secondVC)
         
-        UITabBar.appearance().barTintColor = .systemBlue
         UITabBar.appearance().backgroundColor = .white
         UINavigationBar.appearance().backgroundColor = .white
        // UINavigationBar.appearance().isHidden = true
         
-        let statusBarView = UIView(frame: UIApplication.shared.statusBarFrame)
-        statusBarView.backgroundColor = .white
+        viewControllers = [navController1, navController2]
+    }
+    
+    
+    func layout()
+    {
         view.addSubview(statusBarView)
         
-        viewControllers = [navController1, navController2]
+        NSLayoutConstraint.activate([
+            statusBarView.topAnchor.constraint(equalTo: view.topAnchor),
+            statusBarView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            statusBarView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            statusBarView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor)
+        ])
     }
 }

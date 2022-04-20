@@ -12,9 +12,15 @@ class ProfileHeaderView: UIView {
     
     private lazy var textToPrint: String = statusTextField.text ?? ""
     
+    private let whiteView: UIView = {
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        return $0
+    }(UIView())
+    
     private let fullNameLabel: UILabel = {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.text = "Ponchik sweet dog"
+        $0.numberOfLines = 1
         $0.font = UIFont.systemFont(ofSize: 18, weight: .bold)
         $0.textColor = .black
         return $0
@@ -33,6 +39,7 @@ class ProfileHeaderView: UIView {
     private let statusLabel: UILabel = {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.text = "Waiting for something.."
+        $0.numberOfLines = 1
         $0.font = UIFont.systemFont(ofSize: 14, weight: .regular)
         $0.textColor = .gray
         return $0
@@ -40,7 +47,7 @@ class ProfileHeaderView: UIView {
     
     private let statusTextField: UITextField = {
         $0.translatesAutoresizingMaskIntoConstraints = false
-        $0.text = "Waiting for something.."
+        $0.placeholder = "Waiting for something.."
         $0.font = UIFont.systemFont(ofSize: 15, weight: .regular)
         $0.textColor = .black
         $0.layer.borderWidth = 1
@@ -66,43 +73,56 @@ class ProfileHeaderView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        backgroundColor = .systemBackground
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard (_:)))
+        addGestureRecognizer(tapGesture)
+        
         layout()
+    }
+    
+    @objc private func dismissKeyboard (_ sender: UITapGestureRecognizer) {
+        statusTextField.resignFirstResponder()
     }
     
     private func layout()
     {
         
-        translatesAutoresizingMaskIntoConstraints = false
+        addSubview(whiteView)
         
-       
-        addSubview(avatarImageView)
-        addSubview(fullNameLabel)
-        addSubview(statusLabel)
-        addSubview(statusTextField)
-        addSubview(setStatusButton)
+        [avatarImageView,fullNameLabel,statusLabel,statusTextField,setStatusButton].forEach{whiteView.addSubview($0)}
+        
+        let inset: CGFloat = 16
         
         NSLayoutConstraint.activate([
-            avatarImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 16),
-            avatarImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
+        
+            whiteView.topAnchor.constraint(equalTo: self.topAnchor),
+            whiteView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            whiteView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            whiteView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            
+            avatarImageView.topAnchor.constraint(equalTo: whiteView.topAnchor, constant: inset),
+            avatarImageView.leadingAnchor.constraint(equalTo: whiteView.leadingAnchor, constant: inset),
             avatarImageView.widthAnchor.constraint(equalToConstant: 100),
             avatarImageView.heightAnchor.constraint(equalToConstant: 100),
             
-            fullNameLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 27),
-            fullNameLabel.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 16),
+            fullNameLabel.topAnchor.constraint(equalTo: whiteView.topAnchor, constant: 27),
+            fullNameLabel.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: inset),
+            
             statusLabel.topAnchor.constraint(equalTo: fullNameLabel.bottomAnchor, constant: 34),
-            statusLabel.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 16),
+            statusLabel.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: inset),
             
             statusTextField.topAnchor.constraint(equalTo: statusLabel.bottomAnchor, constant: 8),
-            statusTextField.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 16),
-            statusTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
-            statusTextField.heightAnchor.constraint(equalToConstant: 40),
+            statusTextField.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: inset),
+            statusTextField.trailingAnchor.constraint(equalTo: whiteView.trailingAnchor, constant: -inset),
             
-            setStatusButton.topAnchor.constraint(equalTo: avatarImageView.bottomAnchor, constant: 34),
-            setStatusButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
-            setStatusButton.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -16)
+            setStatusButton.topAnchor.constraint(equalTo: avatarImageView.bottomAnchor, constant: inset),
+            setStatusButton.leadingAnchor.constraint(equalTo: whiteView.leadingAnchor, constant: inset),
+            setStatusButton.trailingAnchor.constraint(equalTo: whiteView.trailingAnchor, constant: -inset),
+            setStatusButton.heightAnchor.constraint(equalToConstant: 50)
+            
         
         ])
-        
     }
     
     required init?(coder: NSCoder) {
