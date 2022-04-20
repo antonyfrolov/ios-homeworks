@@ -18,7 +18,7 @@ class ProfileViewController: UIViewController {
         $0.delegate = self
         $0.register(CustomTableViewCell.self, forCellReuseIdentifier: CustomTableViewCell.identifier)
         return $0
-    }(UITableView())
+    }(UITableView(frame: .zero, style: .grouped))
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,6 +71,7 @@ extension ProfileViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: CustomTableViewCell.identifier, for: indexPath) as! CustomTableViewCell
        
         cell.setupCell(postsList[indexPath.row])
+        cell.separatorInset = .init(top: 0, left: 16, bottom: 0, right: 16)
         
         return cell
     }
