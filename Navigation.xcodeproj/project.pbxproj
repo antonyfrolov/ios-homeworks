@@ -72,14 +72,12 @@
 		9A3710F827FC422E0006A245 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
+				9AFC7CE1280EFD4100CAA015 /* Post */,
 				9A371119280287B00006A245 /* Profile */,
 				9A3710F927FC422E0006A245 /* AppDelegate.swift */,
 				9A37110D27FC43C40006A245 /* TabBarCon.swift */,
 				9AFC7CDD280E780400CAA015 /* CustomTableViewCell.swift */,
-				9AFC7CDB280E761100CAA015 /* PostTableViewCell.swift */,
-				9A37111527FC6CAD0006A245 /* Post.swift */,
 				9A37110F27FC50FA0006A245 /* FeedViewController.swift */,
-				9A37111327FC62E60006A245 /* PostViewController.swift */,
 				9A37111727FC73D60006A245 /* InfoViewController.swift */,
 				9A37110227FC422F0006A245 /* Assets.xcassets */,
 				9A37110427FC422F0006A245 /* LaunchScreen.storyboard */,
@@ -97,6 +95,16 @@
 				9AFC7CD9280D28C500CAA015 /* LogInViewController.swift */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		9AFC7CE1280EFD4100CAA015 /* Post */ = {
+			isa = PBXGroup;
+			children = (
+				9A37111327FC62E60006A245 /* PostViewController.swift */,
+				9AFC7CDB280E761100CAA015 /* PostTableViewCell.swift */,
+				9A37111527FC6CAD0006A245 /* Post.swift */,
+			);
+			path = Post;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

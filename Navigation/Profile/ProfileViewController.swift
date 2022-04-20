@@ -8,28 +8,17 @@
 import Foundation
 import UIKit
 
-
 class ProfileViewController: UIViewController {
     
+    private let postsList: [Post] = Post.presetData()
     
-    let postsList: [Post] = Post.presetData()
-    
-    
-    
-    lazy var tableView: UITableView = {
+    private lazy var tableView: UITableView = {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.dataSource = self
         $0.delegate = self
         $0.register(CustomTableViewCell.self, forCellReuseIdentifier: CustomTableViewCell.identifier)
         return $0
     }(UITableView())
-   
-    /*let newButton: UIButton = {
-        let newButton = UIButton()
-        newButton.setTitle("New button", for: .normal)
-        newButton.backgroundColor = .blue
-        return newButton
-    }()*/
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,41 +26,24 @@ class ProfileViewController: UIViewController {
         self.view.backgroundColor = .lightGray
        // view.addSubview(phv)
         view.addSubview(tableView)
-       // view.addSubview(newButton)
         layout()
         
     }
     
     private func layout(){
         
-        
-        
-        
-        
-        
-        
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            tableView.topAnchor.constraint(equalTo: view.topAnchor),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
-
-        
-        
-       /* newButton.translatesAutoresizingMaskIntoConstraints = false
-        newButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 0).isActive = true
-        newButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: 0).isActive = true
-        newButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0).isActive = true
-        newButton.heightAnchor.constraint(equalToConstant: 50).isActive = true*/
     }
 }
-
 
 // MARK: - UITableViewDataSource
 
 extension ProfileViewController: UITableViewDataSource {
-    
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -98,7 +70,6 @@ extension ProfileViewController: UITableViewDataSource {
        
         cell.setupCell(postsList[indexPath.row])
         
-        
         return cell
     }
 }
@@ -117,7 +88,6 @@ extension ProfileViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
         let phv = ProfileHeaderView()
-    
         return phv
     }
     
@@ -125,7 +95,7 @@ extension ProfileViewController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
 
         let detailVC = PostViewController()
-      //  detailVC.setupVC(model: carModel[indexPath.section][indexPath.row])
+      //  detailVC.setupVC(model: carModel[indexPath.sectio[indexPath.row])
         navigationController?.pushViewController(detailVC, animated: true)
     }
 }

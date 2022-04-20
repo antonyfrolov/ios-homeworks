@@ -77,9 +77,7 @@ class LogInViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-       // view.backgroundColor = .white
-        
+    
         navigationController?.navigationBar.isHidden = true
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard (_:)))
@@ -149,25 +147,19 @@ class LogInViewController: UIViewController {
         contentView.addSubview(logoImg)
         
         NSLayoutConstraint.activate([
-        
             logoImg.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 120),
             logoImg.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             logoImg.widthAnchor.constraint(equalToConstant: 100),
             logoImg.heightAnchor.constraint(equalToConstant: 100),
-            
         ])
         
         contentView.addSubview(newStack)
         
         NSLayoutConstraint.activate([
-            
-            
             newStack.topAnchor.constraint(equalTo: logoImg.bottomAnchor, constant: 120),
             newStack.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
             newStack.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
             newStack.heightAnchor.constraint(equalToConstant: 100)
-        
-            
         ])
         
         
@@ -192,7 +184,6 @@ class LogInViewController: UIViewController {
         contentView.addSubview(loginButton)
         
         NSLayoutConstraint.activate([
-            
             loginButton.topAnchor.constraint(equalTo: passwordInput.bottomAnchor, constant: 16),
             loginButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
             loginButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
