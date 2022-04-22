@@ -73,7 +73,7 @@ class ProfileHeaderView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .systemBackground
+        backgroundColor = .systemGray6
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard (_:)))
         addGestureRecognizer(tapGesture)
@@ -93,6 +93,7 @@ class ProfileHeaderView: UIView {
         [avatarImageView,fullNameLabel,statusLabel,statusTextField,setStatusButton].forEach{whiteView.addSubview($0)}
         
         let inset: CGFloat = 16
+        
         
         NSLayoutConstraint.activate([
         

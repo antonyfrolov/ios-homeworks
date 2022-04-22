@@ -14,7 +14,7 @@ class TabBarCon: UITabBarController {
     
     let statusBarView: UIView = {
         $0.translatesAutoresizingMaskIntoConstraints = false
-        $0.backgroundColor = .systemBackground
+        $0.backgroundColor = .systemGray6
         return $0
     }(UIView())
 
