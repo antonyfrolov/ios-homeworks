@@ -94,9 +94,7 @@ class ProfileHeaderView: UIView {
         
         let inset: CGFloat = 16
         
-        
         NSLayoutConstraint.activate([
-        
             whiteView.topAnchor.constraint(equalTo: self.topAnchor),
             whiteView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             whiteView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
@@ -121,8 +119,6 @@ class ProfileHeaderView: UIView {
             setStatusButton.leadingAnchor.constraint(equalTo: whiteView.leadingAnchor, constant: inset),
             setStatusButton.trailingAnchor.constraint(equalTo: whiteView.trailingAnchor, constant: -inset),
             setStatusButton.heightAnchor.constraint(equalToConstant: 50)
-            
-        
         ])
     }
     

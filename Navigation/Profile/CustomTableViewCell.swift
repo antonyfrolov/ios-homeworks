@@ -9,7 +9,6 @@ import UIKit
 
 class CustomTableViewCell: UITableViewCell {
 
-    
     private let whiteView: UIView = {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.backgroundColor = .systemBackground
@@ -18,7 +17,6 @@ class CustomTableViewCell: UITableViewCell {
     }(UIView())
 
     private let authorPost: UILabel = {
-        
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.text = "testAuthor"
         $0.font = UIFont.systemFont(ofSize: 14, weight: .bold)
@@ -27,17 +25,14 @@ class CustomTableViewCell: UITableViewCell {
     }(UILabel())
     
     private let imagePost: UIImageView = {
-        
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.image = UIImage(named: "ponch")
-        
         $0.backgroundColor = .black
         
         return $0
     }(UIImageView())
     
     private let titlePost: UILabel = {
-        
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.text = "testTitle"
         $0.font = UIFont.systemFont(ofSize: 12, weight: .regular)
@@ -46,11 +41,9 @@ class CustomTableViewCell: UITableViewCell {
         return $0
     }(UILabel())
     
-    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         layout()
-        
     }
     
     required init?(coder: NSCoder) {
@@ -63,13 +56,11 @@ class CustomTableViewCell: UITableViewCell {
         authorPost.text = post.author
     }
     
-    
     private func layout(){
         
         [whiteView, titlePost, imagePost, authorPost].forEach{contentView.addSubview($0)}
         
         NSLayoutConstraint.activate([
-            
             whiteView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0),
             whiteView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0),
             whiteView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
@@ -90,7 +81,5 @@ class CustomTableViewCell: UITableViewCell {
             titlePost.trailingAnchor.constraint(equalTo: whiteView.trailingAnchor, constant: -16),
             titlePost.bottomAnchor.constraint(equalTo: whiteView.bottomAnchor, constant: -16)
         ])
-        
     }
-    
 }

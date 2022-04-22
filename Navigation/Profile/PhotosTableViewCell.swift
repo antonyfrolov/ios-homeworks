@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 class PhotosTableViewCell: UITableViewCell {
     
     weak var myParent:ProfileViewController?
@@ -24,7 +23,7 @@ class PhotosTableViewCell: UITableViewCell {
 
     private let whiteView: UIView = {
         $0.translatesAutoresizingMaskIntoConstraints = false
-        $0.backgroundColor = .systemBrown
+        $0.backgroundColor = .white
         return $0
     }(UIView())
     
@@ -37,6 +36,15 @@ class PhotosTableViewCell: UITableViewCell {
         return $0
     }(UILabel())
     
+    private let arrowLabel: UILabel = {
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.font = UIFont.systemFont(ofSize: 24, weight: .bold)
+        $0.textColor = .black
+       // $0.numberOfLines = 2
+        $0.text = "->"
+        return $0
+    }(UILabel())
+    
     private let layoutCol: UICollectionViewFlowLayout = {
         $0.scrollDirection = .horizontal
        return $0
@@ -44,7 +52,7 @@ class PhotosTableViewCell: UITableViewCell {
     
     private lazy var collectionView: UICollectionView = {
         $0.translatesAutoresizingMaskIntoConstraints = false
-        $0.backgroundColor = .gray
+       // $0.backgroundColor = .gray
         $0.isScrollEnabled = false
         $0.isUserInteractionEnabled = false 
         $0.dataSource = self
@@ -58,7 +66,6 @@ class PhotosTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         layout()
-        
     }
     
     required init?(coder: NSCoder) {
@@ -67,13 +74,12 @@ class PhotosTableViewCell: UITableViewCell {
 
     private func layout() {
         
-        [whiteView, titlePhotos, collectionView].forEach{contentView.addSubview($0)}
+        [whiteView, titlePhotos, arrowLabel,  collectionView].forEach{contentView.addSubview($0)}
     
         let screenSize: CGRect = UIScreen.main.bounds
         let inset: CGFloat = 12
         
         NSLayoutConstraint.activate([
-            
             whiteView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0),
             whiteView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0),
             whiteView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
@@ -82,13 +88,15 @@ class PhotosTableViewCell: UITableViewCell {
             titlePhotos.topAnchor.constraint(equalTo: whiteView.topAnchor, constant: inset),
             titlePhotos.leadingAnchor.constraint(equalTo: whiteView.leadingAnchor, constant: inset),
             
+            arrowLabel.topAnchor.constraint(equalTo: whiteView.topAnchor, constant: inset),
+            arrowLabel.trailingAnchor.constraint(equalTo: whiteView.trailingAnchor, constant: -inset),
+            
             collectionView.topAnchor.constraint(equalTo: titlePhotos.bottomAnchor, constant: inset),
             collectionView.leadingAnchor.constraint(equalTo: whiteView.leadingAnchor, constant: 0),
             collectionView.trailingAnchor.constraint(equalTo: whiteView.trailingAnchor, constant: 0),
             collectionView.bottomAnchor.constraint(equalTo: whiteView.bottomAnchor, constant: -inset)
         ])
     }
-
 }
     
 
@@ -103,7 +111,7 @@ extension PhotosTableViewCell: UICollectionViewDataSource {
         
         cell.setupCell(photos[indexPath.item])
         
-            cell.myParent = self.myParent
+        cell.myParent = self.myParent
         
         return cell
     }

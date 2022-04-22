@@ -21,11 +21,9 @@ class PrePhotosCollectionViewCell: UICollectionViewCell {
         return $0
     }(UIImageView())
     
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         layout()
-        
     }
     
     required init?(coder: NSCoder) {
@@ -37,29 +35,26 @@ class PrePhotosCollectionViewCell: UICollectionViewCell {
     }
     
     private func layout(){
-        
+
         contentView.addSubview(imagePhoto)
         
          NSLayoutConstraint.activate([
-            
             imagePhoto.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0),
             imagePhoto.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0),
             imagePhoto.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
             imagePhoto.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0)
-            
             ])
-            
-    }
+    }/*
     @objc private func tapAction() {
-        /*deleg2?.buttonPressed(number: number)
+        deleg2?.buttonPressed(number: number)
         
         print("Tap")
         
         print(myParent)
         
         let photosVC = PhotosViewController()
-        myParent?.navigationController?.pushViewController(photosVC, animated: true)*/
-    }
+        myParent?.navigationController?.pushViewController(photosVC, animated: true)
+    }*/
 }
 
 

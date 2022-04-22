@@ -67,7 +67,6 @@ extension ProfileViewController: UITableViewDataSource {
         } else {
             return postsList.count
         }
-        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -104,6 +103,7 @@ extension ProfileViewController: UITableViewDataSource {
 // MARK: - UITableViewDelegate
 
 extension ProfileViewController: UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         if indexPath.section == 0 {
