@@ -7,12 +7,9 @@
 
 import UIKit
 
-
-
 class PrePhotosCollectionViewCell: UICollectionViewCell {
     
     weak var myParent:ProfileViewController?
-    
     
     private let whiteView: UIView = {
         $0.translatesAutoresizingMaskIntoConstraints = false
@@ -27,6 +24,17 @@ class PrePhotosCollectionViewCell: UICollectionViewCell {
         button.addTarget(self, action: #selector(tapAction), for: .touchUpInside)
         return button
     }()
+    
+    private let imagePhotos: UIImageView = {
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.image = UIImage(named: "ponch")
+       // $0.contentMode = .scaleAspectFit
+        $0.clipsToBounds = true
+        $0.layer.cornerRadius = 6
+        $0.backgroundColor = .systemPink
+        return $0
+    }(UIImageView())
+    
     
     override init(frame: CGRect) {
         super.init(frame: frame)

@@ -138,7 +138,9 @@ extension ProfileViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
+        print("Mda")
         print(navigationController)
+        
         
         if indexPath.section == 0 {
             let photosVC = PhotosViewController()
