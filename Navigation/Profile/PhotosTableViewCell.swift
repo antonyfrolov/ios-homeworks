@@ -11,6 +11,16 @@ import UIKit
 class PhotosTableViewCell: UITableViewCell {
     
     weak var myParent:ProfileViewController?
+    
+    private var photos: [UIImage] = {
+        var photos = [UIImage]()
+
+        for i in 1...4 {
+            let photo = UIImage(named: "\(i)")
+            photos.append(photo ?? UIImage(named: "ponch")!)
+        }
+        return photos
+    }()
 
     private let whiteView: UIView = {
         $0.translatesAutoresizingMaskIntoConstraints = false
@@ -91,19 +101,44 @@ extension PhotosTableViewCell: UICollectionViewDataSource {
        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PrePhotosCollectionViewCell.identifier, for: indexPath) as! PrePhotosCollectionViewCell
         
+        cell.setupCell(photos[indexPath.item])
+        
             cell.myParent = self.myParent
         
         return cell
     }
 }
 
+extension PhotosTableViewCell: UICollectionViewDelegateFlowLayout {
+    
+    private var inset: CGFloat { return 12 }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        let width = (collectionView.bounds.width - inset * 5) / 4
+        return CGSize(width: width, height: width)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        
+        UIEdgeInsets(top: inset, left: inset, bottom: inset, right: inset)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        8
+    }
+    
+}
+
+/*
 extension PhotosTableViewCell: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        print("hi!")
+        print("test!")
         let photosVC = PhotosViewController()
         myParent?.navigationController?.pushViewController(photosVC, animated: true)
     }
     
 }
+ */

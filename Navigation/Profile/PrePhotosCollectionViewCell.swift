@@ -11,36 +11,20 @@ class PrePhotosCollectionViewCell: UICollectionViewCell {
     
     weak var myParent:ProfileViewController?
     
-    private let whiteView: UIView = {
-        $0.translatesAutoresizingMaskIntoConstraints = false
-        $0.backgroundColor = .green
-        return $0
-    }(UIView())
-    
-    lazy var button: UIButton = {
-        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
-        button.backgroundColor = .black
-        button.setTitle("Press", for: .normal)
-        button.addTarget(self, action: #selector(tapAction), for: .touchUpInside)
-        return button
-    }()
-    
-    private let imagePhotos: UIImageView = {
+    private let imagePhoto: UIImageView = {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.image = UIImage(named: "ponch")
        // $0.contentMode = .scaleAspectFit
         $0.clipsToBounds = true
         $0.layer.cornerRadius = 6
-        $0.backgroundColor = .systemPink
+        $0.backgroundColor = .black
         return $0
     }(UIImageView())
     
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-      //  layout()
-        contentView.addSubview(button)
-        backgroundColor = .green
+        layout()
         
     }
     
@@ -48,28 +32,33 @@ class PrePhotosCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func setupCell(_ photo: UIImage){
+        imagePhoto.image = photo
+    }
+    
     private func layout(){
         
-        /* NSLayoutConstraint.activate([
+        contentView.addSubview(imagePhoto)
+        
+         NSLayoutConstraint.activate([
             
-            whiteView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0),
-            whiteView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0),
-            whiteView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
-            whiteView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0)
+            imagePhoto.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0),
+            imagePhoto.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0),
+            imagePhoto.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
+            imagePhoto.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0)
             
-            ])*/
+            ])
             
-            button.center = contentView.center
     }
     @objc private func tapAction() {
-        //deleg2?.buttonPressed(number: number)
+        /*deleg2?.buttonPressed(number: number)
         
         print("Tap")
         
         print(myParent)
         
         let photosVC = PhotosViewController()
-        myParent?.navigationController?.pushViewController(photosVC, animated: true)
+        myParent?.navigationController?.pushViewController(photosVC, animated: true)*/
     }
 }
 

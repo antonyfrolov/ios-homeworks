@@ -72,6 +72,7 @@ extension PostViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: PostTableViewCell.identifier, for: indexPath) as! PostTableViewCell
        
         cell.setupCell(post)
+        cell.selectionStyle = .none
         
         return cell
     }

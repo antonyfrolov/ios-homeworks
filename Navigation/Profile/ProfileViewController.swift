@@ -96,11 +96,8 @@ extension ProfileViewController: UITableViewDataSource {
             cell.setupCell(postsList[indexPath.row])
             cell.separatorInset = .init(top: 0, left: 16, bottom: 0, right: 16)
             
-            
-            
             return cell
         }
-        
     }
 }
 
@@ -132,16 +129,11 @@ extension ProfileViewController: UITableViewDelegate {
         } else {
             return nil
         }
-            
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        
-        print("Mda")
-        print(navigationController)
-        
-        
+    
         if indexPath.section == 0 {
             let photosVC = PhotosViewController()
             navigationController?.pushViewController(photosVC, animated: true)
@@ -150,6 +142,5 @@ extension ProfileViewController: UITableViewDelegate {
             let detailVC = PostViewController(post: postsList[indexPath.row])
             navigationController?.pushViewController(detailVC, animated: true)
         }
-        
     }
 }
