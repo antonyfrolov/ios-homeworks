@@ -218,6 +218,7 @@ class ProfileHeaderView: UIView {
                 UIView.animate(withDuration: 1.0,
                                delay: 0.0) {
                     self.avatarImageView.layer.cornerRadius = 0
+                    
                 }
             }
         print("Test")
