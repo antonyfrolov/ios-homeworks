@@ -81,6 +81,8 @@ class ProfileHeaderView: UIView {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.placeholder = "Waiting for something.."
         $0.font = UIFont.systemFont(ofSize: 15, weight: .regular)
+        $0.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: $0.frame.height))
+        $0.leftViewMode = .always
         $0.textColor = .black
         $0.layer.borderWidth = 1
         $0.layer.borderColor = UIColor.black.cgColor
@@ -110,22 +112,18 @@ class ProfileHeaderView: UIView {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard (_:)))
         addGestureRecognizer(tapGesture)
         
+        let tapAvatar = UITapGestureRecognizer(target: self, action: #selector(showAction))
+        avatarImageView.addGestureRecognizer(tapAvatar)
+        
         isUserInteractionEnabled = true
         
         layout()
-        setupGestures()
     }
     
     @objc private func dismissKeyboard (_ sender: UITapGestureRecognizer) {
         statusTextField.resignFirstResponder()
     }
     
-    func setupGestures(){
-        
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(showAction))
-
-        avatarImageView.addGestureRecognizer(tapGesture)
-    }
     
     private func layout()
     {
@@ -190,7 +188,18 @@ class ProfileHeaderView: UIView {
     
     @objc func tapAction() {
         print(textToPrint)
-        statusLabel.text = textToPrint
+        if textToPrint == "" {
+            statusTextField.attributedPlaceholder = NSAttributedString(
+                string: "Cannot be empty!",
+                attributes: [NSAttributedString.Key.foregroundColor: UIColor.red]
+            )
+        } else {
+            statusTextField.attributedPlaceholder = NSAttributedString(
+                string: "Waiting for something..",
+                attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray]
+            )
+            statusLabel.text = textToPrint
+        }
     }
     
     @objc func showAction(){
@@ -207,6 +216,7 @@ class ProfileHeaderView: UIView {
                 
                 self.blackView.isHidden = false
                 
+                
                 self.avatarImageViewTop.constant = self.closeButton.bounds.height
                 self.avatarImageViewLeading.isActive = false
                 self.avatarImageViewWidth.constant = UIScreen.main.bounds.width
@@ -221,7 +231,6 @@ class ProfileHeaderView: UIView {
                     
                 }
             }
-        print("Test")
     }
     
     @objc func hideAction(){

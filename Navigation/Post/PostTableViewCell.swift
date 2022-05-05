@@ -9,6 +9,8 @@ import UIKit
 
 class PostTableViewCell: UITableViewCell {
     
+    private weak var postViewDelegate: PostViewDelegate?
+    
     private let whiteView: UIView = {
         $0.translatesAutoresizingMaskIntoConstraints = false
         return $0
@@ -19,7 +21,7 @@ class PostTableViewCell: UITableViewCell {
         $0.font = UIFont.systemFont(ofSize: 20, weight: .bold)
         $0.textColor = .black
         $0.numberOfLines = 2
-        $0.text = "testTextTitle"
+        $0.text = "New title"
         return $0
     }(UILabel())
     
@@ -64,19 +66,33 @@ class PostTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         backgroundColor = .systemBackground
         layout()
+        
+        let tapLike = UITapGestureRecognizer(target: self, action: #selector(tapLike))
+        likesPost.addGestureRecognizer(tapLike)
+        likesPost.isUserInteractionEnabled = true
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setupCell(_ post: Post) {
-        authorPost.text = post.author
-        imagePost.image = post.image
-        likesPost.text = "Likes: \(post.likes)"
-        viewsPost.text = "Views: \(post.views)"
-        desciptionPost.text = post.description
+    func setupCell(_ postViewDelegate: PostViewDelegate?) {
+        if let postViewDelegate = postViewDelegate {
+            self.postViewDelegate = postViewDelegate
+            authorPost.text = postViewDelegate.post.author
+            imagePost.image = postViewDelegate.post.image
+            likesPost.text = "Likes: \(postViewDelegate.post.likes)"
+            viewsPost.text = "Views: \(postViewDelegate.post.views)"
+            desciptionPost.text = postViewDelegate.post.description
+        } else {
+            authorPost.text = "Def author"
+            imagePost.image = nil
+            likesPost.text = "Likes: 0"
+            viewsPost.text = "Views: 0"
+            desciptionPost.text = "Def desc"
+        }
     }
+    
     
     private func layout() {
         [whiteView, authorPost, newStack, imagePost, desciptionPost].forEach{contentView.addSubview($0)}
@@ -112,5 +128,10 @@ class PostTableViewCell: UITableViewCell {
             newStack.trailingAnchor.constraint(equalTo: whiteView.trailingAnchor, constant: -inset),
             newStack.bottomAnchor.constraint(equalTo: whiteView.bottomAnchor,constant: -inset)
         ])
+    }
+    
+    @objc private func tapLike() {
+        postViewDelegate?.postLikePressed()
+        likesPost.text = "Likes: \(postViewDelegate!.post.likes)"
     }
 }

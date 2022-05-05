@@ -17,6 +17,7 @@
 		9A37111827FC73D60006A245 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A37111727FC73D60006A245 /* InfoViewController.swift */; };
 		9A37111B280287DC0006A245 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A37111A280287DC0006A245 /* ProfileHeaderView.swift */; };
 		9A37111D280288D90006A245 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A37111C280288D90006A245 /* ProfileViewController.swift */; };
+		9A59179E2824111B00DCD4E6 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A59179D2824111B00DCD4E6 /* Protocols.swift */; };
 		9AAE42AF2810163900E51FD1 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAE42AE2810163900E51FD1 /* TestViewController.swift */; };
 		9AAE42B128113D3400E51FD1 /* PhotosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAE42B028113D3400E51FD1 /* PhotosTableViewCell.swift */; };
 		9AAE42B42811861D00E51FD1 /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAE42B32811861D00E51FD1 /* PhotosViewController.swift */; };
@@ -41,6 +42,7 @@
 		9A37111727FC73D60006A245 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		9A37111A280287DC0006A245 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		9A37111C280288D90006A245 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		9A59179D2824111B00DCD4E6 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		9AAE42AE2810163900E51FD1 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		9AAE42B028113D3400E51FD1 /* PhotosTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosTableViewCell.swift; sourceTree = "<group>"; };
 		9AAE42B32811861D00E51FD1 /* PhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 				9A37110227FC422F0006A245 /* Assets.xcassets */,
 				9A37110727FC422F0006A245 /* Info.plist */,
 				9AAE42AE2810163900E51FD1 /* TestViewController.swift */,
+				9A59179D2824111B00DCD4E6 /* Protocols.swift */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -211,6 +214,7 @@
 				9A37111027FC50FA0006A245 /* FeedViewController.swift in Sources */,
 				9A3710FA27FC422E0006A245 /* AppDelegate.swift in Sources */,
 				9AFC7CDE280E780400CAA015 /* CustomTableViewCell.swift in Sources */,
+				9A59179E2824111B00DCD4E6 /* Protocols.swift in Sources */,
 				9AFC7CDA280D28C500CAA015 /* LogInViewController.swift in Sources */,
 				9A37111827FC73D60006A245 /* InfoViewController.swift in Sources */,
 				9AAE42AF2810163900E51FD1 /* TestViewController.swift in Sources */,

@@ -7,13 +7,9 @@
 
 import UIKit
 
-protocol TapViewDelegate: AnyObject{
-    func postImagePressed (post: Post)
-}
-
 class CustomTableViewCell: UITableViewCell {
     
-    private var post = Post(title: "", description: "", author: "", likes: 0, views: 0)
+    var post = Post(title: "", description: "", author: "", likes: 0, views: 0)
     
     weak var tapViewDelegate: TapViewDelegate?
 
@@ -78,8 +74,6 @@ class CustomTableViewCell: UITableViewCell {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-        
-        
     }
     
     func setupCell(_ post: Post){
@@ -93,13 +87,13 @@ class CustomTableViewCell: UITableViewCell {
     
     func setupGestures(){
         
-        let tapLike = UITapGestureRecognizer(target: self, action: #selector(tapLike))
+        let tapLike = UITapGestureRecognizer(target: self, action: #selector(postLikePressed))
         likesPost.addGestureRecognizer(tapLike)
         likesPost.isUserInteractionEnabled = true
         
         
-        let tapView = UITapGestureRecognizer(target: self, action: #selector(tapView))
-        imagePost.addGestureRecognizer(tapView)
+        let tapPost = UITapGestureRecognizer(target: self, action: #selector(tapView))
+        imagePost.addGestureRecognizer(tapPost)
         imagePost.isUserInteractionEnabled = true
         
     }
@@ -140,26 +134,22 @@ class CustomTableViewCell: UITableViewCell {
         ])
     }
     
-    
-    @objc private func tapLike() {
-        
-        post.likes += 1
-        
-        likesPost.text = "Likes: \(post.likes)"
-        
-        print ("Ku1")
-        
-    }
-    
     @objc private func tapView() {
         
         // let detailVC = PostViewController(post: post)
          //navigationController?.pushViewController(detailVC, animated: true)
         
-        self.tapViewDelegate?.postImagePressed(post: self.post)
-    
-        print ("Ku2")
+        post.views += 1
+        viewsPost.text = "Views: \(post.views)"
         
+        self.tapViewDelegate?.postImagePressed(postViewDelegate: self)
     }
+}
+
+extension CustomTableViewCell: PostViewDelegate {
     
+    @objc func postLikePressed() {
+        self.post.likes += 1
+        self.likesPost.text = "Likes: \(self.post.likes)"
+    }
 }

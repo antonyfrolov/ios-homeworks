@@ -150,12 +150,9 @@ extension ProfileViewController: UITableViewDelegate {
 
 
 extension ProfileViewController: TapViewDelegate {
-    func postImagePressed(post: Post) {
-        
-        print (post)
-        
-        let detailVC = PostViewController(post: post)
-        navigationController?.pushViewController(detailVC, animated: true)
-    }    
     
+    func postImagePressed(postViewDelegate: PostViewDelegate) {
+        let detailVC = PostViewController(postViewDelegate: postViewDelegate)
+        navigationController?.pushViewController(detailVC, animated: true)
+    }
 }
