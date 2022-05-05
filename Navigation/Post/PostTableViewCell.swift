@@ -14,7 +14,7 @@ class PostTableViewCell: UITableViewCell {
         return $0
     }(UIView())
     
-    private let titlePost: UILabel = {
+    private let authorPost: UILabel = {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.font = UIFont.systemFont(ofSize: 20, weight: .bold)
         $0.textColor = .black
@@ -71,7 +71,7 @@ class PostTableViewCell: UITableViewCell {
     }
     
     func setupCell(_ post: Post) {
-        titlePost.text = post.title
+        authorPost.text = post.author
         imagePost.image = post.image
         likesPost.text = "Likes: \(post.likes)"
         viewsPost.text = "Views: \(post.views)"
@@ -79,7 +79,7 @@ class PostTableViewCell: UITableViewCell {
     }
     
     private func layout() {
-        [whiteView, titlePost, newStack, imagePost, desciptionPost].forEach{contentView.addSubview($0)}
+        [whiteView, authorPost, newStack, imagePost, desciptionPost].forEach{contentView.addSubview($0)}
         
         newStack.addArrangedSubview(likesPost)
         newStack.addArrangedSubview(viewsPost)
@@ -94,11 +94,11 @@ class PostTableViewCell: UITableViewCell {
             whiteView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
             whiteView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0),
             
-            titlePost.topAnchor.constraint(equalTo: whiteView.topAnchor, constant: inset),
-            titlePost.leadingAnchor.constraint(equalTo: whiteView.leadingAnchor, constant: inset),
-            titlePost.trailingAnchor.constraint(equalTo: whiteView.trailingAnchor, constant: -inset),
+            authorPost.topAnchor.constraint(equalTo: whiteView.topAnchor, constant: inset),
+            authorPost.leadingAnchor.constraint(equalTo: whiteView.leadingAnchor, constant: inset),
+            authorPost.trailingAnchor.constraint(equalTo: whiteView.trailingAnchor, constant: -inset),
             
-            imagePost.topAnchor.constraint(equalTo: titlePost.bottomAnchor, constant: inset),
+            imagePost.topAnchor.constraint(equalTo: authorPost.bottomAnchor, constant: inset),
             imagePost.leadingAnchor.constraint(equalTo: whiteView.leadingAnchor),
             imagePost.widthAnchor.constraint(equalToConstant: screenSize.width),
             imagePost.heightAnchor.constraint(equalToConstant: screenSize.width),
