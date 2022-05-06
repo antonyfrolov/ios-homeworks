@@ -27,17 +27,14 @@ class ProfileHeaderView: UIView {
     
     private let blackView: UIView = {
         $0.translatesAutoresizingMaskIntoConstraints = false
-        $0.backgroundColor = .black
-        
+        $0.backgroundColor = UIColor.black.withAlphaComponent(0.8)
         $0.isHidden = true
-        $0.alpha = 0.5
         return $0
     }(UIView())
     
     private let closeButton: UIButton = {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.backgroundColor = .blue
-        
         $0.setTitle("Close", for: .normal)
         $0.addTarget(self, action: #selector(hideAction), for: .touchUpInside)
         return $0
@@ -120,11 +117,6 @@ class ProfileHeaderView: UIView {
         layout()
     }
     
-    @objc private func dismissKeyboard (_ sender: UITapGestureRecognizer) {
-        statusTextField.resignFirstResponder()
-    }
-    
-    
     private func layout()
     {
         
@@ -186,8 +178,11 @@ class ProfileHeaderView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    @objc func tapAction() {
-        print(textToPrint)
+    @objc private func dismissKeyboard (_ sender: UITapGestureRecognizer) {
+        statusTextField.resignFirstResponder()
+    }
+    
+    @objc private func tapAction() {
         if textToPrint == "" {
             statusTextField.attributedPlaceholder = NSAttributedString(
                 string: "Cannot be empty!",
@@ -202,8 +197,7 @@ class ProfileHeaderView: UIView {
         }
     }
     
-    @objc func showAction(){
-        
+    @objc private func showAction(){
         avatarImageViewX = self.avatarImageView.center.x
         avatarImageViewY = self.avatarImageView.center.y
         
@@ -215,8 +209,6 @@ class ProfileHeaderView: UIView {
             options: .curveEaseInOut) {
                 
                 self.blackView.isHidden = false
-                
-                
                 self.avatarImageViewTop.constant = self.closeButton.bounds.height
                 self.avatarImageViewLeading.isActive = false
                 self.avatarImageViewWidth.constant = UIScreen.main.bounds.width
@@ -233,7 +225,7 @@ class ProfileHeaderView: UIView {
             }
     }
     
-    @objc func hideAction(){
+    @objc private func hideAction(){
         
         UIView.animate(
             withDuration: 0.5,
@@ -252,7 +244,7 @@ class ProfileHeaderView: UIView {
             }
     }
     
-    @objc func textChanged(_ textField: UITextField) {
+    @objc private func textChanged(_ textField: UITextField) {
         textToPrint = textField.text!
     }
 }
