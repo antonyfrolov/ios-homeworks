@@ -76,7 +76,7 @@ class PhotosTableViewCell: UITableViewCell {
         
         [whiteView, titlePhotos, arrowLabel,  collectionView].forEach{contentView.addSubview($0)}
     
-        let screenSize: CGRect = UIScreen.main.bounds
+        //let screenSize: CGRect = UIScreen.main.bounds
         let inset: CGFloat = 12
         
         NSLayoutConstraint.activate([
