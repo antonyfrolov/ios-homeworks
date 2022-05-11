@@ -12,14 +12,6 @@ class ProfileHeaderView: UIView {
     
     private lazy var textToPrint: String = statusTextField.text ?? ""
     
-    private var avatarImageViewLeading = NSLayoutConstraint()
-    private var avatarImageViewTop = NSLayoutConstraint()
-    private var avatarImageViewWidth = NSLayoutConstraint()
-    private var avatarImageViewHeight = NSLayoutConstraint()
-    private var avatarImageViewX = CGFloat()
-    private var avatarImageViewY = CGFloat()
-
-    
     private let whiteView: UIView = {
         $0.translatesAutoresizingMaskIntoConstraints = false
         return $0
@@ -128,11 +120,6 @@ class ProfileHeaderView: UIView {
         
         let inset: CGFloat = 16
         
-        avatarImageViewLeading = avatarImageView.leadingAnchor.constraint(equalTo: whiteView.leadingAnchor, constant: inset)
-        avatarImageViewTop = avatarImageView.topAnchor.constraint(equalTo: whiteView.topAnchor, constant: inset)
-        avatarImageViewWidth = avatarImageView.widthAnchor.constraint(equalToConstant: 100)
-        avatarImageViewHeight = avatarImageView.heightAnchor.constraint(equalToConstant: 100)
-        
         NSLayoutConstraint.activate([
             
             
@@ -149,13 +136,13 @@ class ProfileHeaderView: UIView {
             blackView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width),
             blackView.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height),
             
+            avatarImageView.leadingAnchor.constraint(equalTo: whiteView.leadingAnchor, constant: inset),
+            avatarImageView.topAnchor.constraint(equalTo: whiteView.topAnchor, constant: inset),
+            avatarImageView.widthAnchor.constraint(equalToConstant: 100),
+            avatarImageView.heightAnchor.constraint(equalToConstant: 100),
+            
             closeButton.topAnchor.constraint(equalTo: blackView.topAnchor),
             closeButton.trailingAnchor.constraint(equalTo: blackView.trailingAnchor),
-            
-            avatarImageViewTop,
-            avatarImageViewLeading,
-            avatarImageViewWidth,
-            avatarImageViewHeight,
             
             fullNameLabel.topAnchor.constraint(equalTo: whiteView.topAnchor, constant: 27),
             fullNameLabel.leadingAnchor.constraint(equalTo: substrateImageView.trailingAnchor, constant: inset),
@@ -198,30 +185,26 @@ class ProfileHeaderView: UIView {
     }
     
     @objc private func showAction(){
-        avatarImageViewX = self.avatarImageView.center.x
-        avatarImageViewY = self.avatarImageView.center.y
         
         UIView.animate(
             withDuration: 0.5,
             delay: 0.1,
             usingSpringWithDamping: 1,
             initialSpringVelocity: 0.3,
-            options: .curveEaseInOut) {
+            options: .curveEaseInOut) { [self] in
                 
                 self.blackView.isHidden = false
-                self.avatarImageViewTop.constant = self.closeButton.bounds.height
-                self.avatarImageViewLeading.isActive = false
-                self.avatarImageViewWidth.constant = UIScreen.main.bounds.width
-                self.avatarImageViewHeight.constant = UIScreen.main.bounds.width
+                
+                self.avatarImageView.layer.position = CGPoint(x: UIScreen.main.bounds.midX, y: UIScreen.main.bounds.midY)
+                
+                self.avatarImageView.layer.bounds = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width)
+         
+              //  self.closeButton.bottomAnchor.constraint(equalTo: avatarImageView.bottomAnchor).isActive = true
+                
+               // self.closeButton.layer.position = CGPoint(x: avatarImageView.layer.position.x + 150, y: avatarImageView.layer.position.y - 220)
                 
                 self.avatarImageView.layer.cornerRadius = 0
                 self.layoutIfNeeded()
-            } completion: { _ in
-                UIView.animate(withDuration: 1.0,
-                               delay: 0.0) {
-                    self.avatarImageView.layer.cornerRadius = 0
-                    
-                }
             }
     }
     
@@ -233,11 +216,11 @@ class ProfileHeaderView: UIView {
             usingSpringWithDamping: 1,
             initialSpringVelocity: 0.3,
             options: .curveEaseInOut) {
-                self.avatarImageView.center = CGPoint(x: self.avatarImageViewX, y: self.avatarImageViewY)
-                self.avatarImageViewTop.constant = self.whiteView.bounds.minY + 16
-                self.avatarImageViewLeading.isActive = true
-                self.avatarImageViewWidth.constant = 100
-                self.avatarImageViewHeight.constant = 100
+                
+                self.avatarImageView.layer.position = self.substrateImageView.layer.position
+                
+                self.avatarImageView.layer.bounds = CGRect(x: 0, y: 0, width: 100, height: 100)
+  
                 self.blackView.isHidden = true
                 self.layoutIfNeeded()
                 self.avatarImageView.layer.cornerRadius = self.avatarImageView.bounds.width / 2

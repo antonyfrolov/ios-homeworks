@@ -156,3 +156,4 @@ extension ProfileViewController: TapViewDelegate {
         navigationController?.pushViewController(detailVC, animated: true)
     }
 }
+

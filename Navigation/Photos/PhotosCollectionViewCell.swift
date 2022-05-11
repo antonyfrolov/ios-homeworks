@@ -11,13 +11,6 @@ class PhotosCollectionViewCell: UICollectionViewCell {
     
     weak var tapPhotoDelegate: TapPhotoDelegate?
     
-    private var imagePhotoViewLeading = NSLayoutConstraint()
-    private var imagePhotoViewTop = NSLayoutConstraint()
-    private var aimagePhotoViewWidth = NSLayoutConstraint()
-    private var imagePhotoViewHeight = NSLayoutConstraint()
-    private var imagePhotoViewX = CGFloat()
-    private var imagePhotoViewY = CGFloat()
-    
     private let substrateImagePhoto: UIView = {
         $0.translatesAutoresizingMaskIntoConstraints = false
         return $0
@@ -70,8 +63,6 @@ class PhotosCollectionViewCell: UICollectionViewCell {
         
         //self.blackView.isHidden = false
         
-        imagePhotoViewX = self.imagePhoto.center.x
-        imagePhotoViewY = self.imagePhoto.center.y
         /*
         UIView.animate(
             withDuration: 0.5,

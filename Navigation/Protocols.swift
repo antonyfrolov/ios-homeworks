@@ -20,3 +20,4 @@ protocol PostViewDelegate: AnyObject {
 protocol TapPhotoDelegate: AnyObject {
     func photoPressed(photoView: UIImageView)
 }
+
