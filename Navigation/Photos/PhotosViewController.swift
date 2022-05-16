@@ -143,7 +143,7 @@ extension PhotosViewController: TapPhotoDelegate {
                        options: .curveEaseInOut) {
             
             self.navigationController?.isNavigationBarHidden = true
-
+            self.tabBarController?.tabBar.isHidden = true
             self.blackView.isHidden = false
             self.view.layoutIfNeeded()
         }
@@ -158,6 +158,7 @@ extension PhotosViewController: TapPhotoDelegate {
                        options: .curveEaseInOut) {
             
             self.navigationController?.isNavigationBarHidden = false
+            self.tabBarController?.tabBar.isHidden = false
             self.blackView.isHidden = true
             self.view.layoutIfNeeded()
         }

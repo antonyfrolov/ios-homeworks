@@ -127,6 +127,7 @@ class ProfileHeaderView: UIView {
             whiteView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             whiteView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             whiteView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+       
             
             substrateImageView.leadingAnchor.constraint(equalTo: whiteView.leadingAnchor, constant: inset),
             substrateImageView.topAnchor.constraint(equalTo: whiteView.topAnchor, constant: inset),
@@ -153,8 +154,9 @@ class ProfileHeaderView: UIView {
             statusTextField.topAnchor.constraint(equalTo: statusLabel.bottomAnchor, constant: 8),
             statusTextField.leadingAnchor.constraint(equalTo: substrateImageView.trailingAnchor, constant: inset),
             statusTextField.trailingAnchor.constraint(equalTo: whiteView.trailingAnchor, constant: -inset),
+            statusTextField.heightAnchor.constraint(equalToConstant: 40),
             
-            setStatusButton.topAnchor.constraint(equalTo: substrateImageView.bottomAnchor, constant: inset),
+            setStatusButton.topAnchor.constraint(equalTo: statusTextField.bottomAnchor, constant: inset),
             setStatusButton.leadingAnchor.constraint(equalTo: whiteView.leadingAnchor, constant: inset),
             setStatusButton.trailingAnchor.constraint(equalTo: whiteView.trailingAnchor, constant: -inset),
             setStatusButton.heightAnchor.constraint(equalToConstant: 50)
